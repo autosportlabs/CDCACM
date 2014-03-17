@@ -42,5 +42,6 @@ uint8_t USBH_CDC_isReady(void);
 int USBH_CDC_SendData(uint8_t *data, int len, uint8_t port);
 int USBH_CDC_ReceiveData(uint8_t *data, int len, uint8_t port);
 int USBH_CDC_GetPortCount();
+USBH_Status USBH_CDC_GetLastLineCodeStatus();
 
 #endif  /* __USBH_CDC_CORE_H */

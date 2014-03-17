@@ -21,8 +21,7 @@ __ALIGN_BEGIN CDC_Machine_TypeDef           CDC_Machine __ALIGN_END;
 
 uint8_t                                     CDC_port_num = 0;
 uint8_t                                     set_line_code_done = 0;
-USBH_Status									lineCodeStatus = 0;
-
+USBH_Status									lastLineCodingRes = 0;
 /* 
  * USBH_CDC_CORE_Private_FunctionPrototypes
  */ 
@@ -204,7 +203,8 @@ static USBH_Status USBH_CDC_ClassRequest(USB_OTG_CORE_HANDLE *pdev , void *phost
 
 static USBH_Status USBH_CDC_Handle(USB_OTG_CORE_HANDLE *pdev , void *phost) {
     if (set_line_code_done == 0) {
-        if (USBH_SET_LINE_CODING(pdev, phost) == USBH_OK) {
+    	lastLineCodingRes = USBH_SET_LINE_CODING(pdev, phost);
+        if (lastLineCodingRes == USBH_OK) {
             set_line_code_done = 1;
         }
     }
@@ -274,4 +274,7 @@ int USBH_CDC_GetPortCount(){
 	return CDC_port_num;
 }
 
+USBH_Status USBH_CDC_GetLastLineCodeStatus(){
+	return lastLineCodingRes;
+}
 

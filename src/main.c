@@ -60,6 +60,7 @@ static void main_task(void *params) {
 
 		if (enum_done >= 1) {
             DEBUG("enum_done\n");
+            DEBUG("lineCode status %d\n", USBH_CDC_GetLastLineCodeStatus());
 			enum_done = 0;
 
 		}
