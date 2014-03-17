@@ -1,0 +1,24 @@
+libs/FreeRTOSV7.6.0/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o: \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/include/FreeRTOS.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/include/stddef.h \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/include/projdefs.h \
+ app/f4_usbHostCDC/FreeRTOSConfig.h \
+ libs/STM32F4xx_DSP_StdPeriph_Lib_V1.0.1/Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
+ libs/STM32F4xx_DSP_StdPeriph_Lib_V1.0.1/Libraries/CMSIS/Include/core_cm4.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/include/stdint.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/stdint.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/_ansi.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/newlib.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/sys/config.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/machine/ieeefp.h \
+ e:\myfile\mprj\phil_mp3\gcc-arm-none-eabi-4.7-2013q2\bin\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/sys/features.h \
+ libs/STM32F4xx_DSP_StdPeriph_Lib_V1.0.1/Libraries/CMSIS/Include/core_cmInstr.h \
+ libs/STM32F4xx_DSP_StdPeriph_Lib_V1.0.1/Libraries/CMSIS/Include/core_cmFunc.h \
+ libs/STM32F4xx_DSP_StdPeriph_Lib_V1.0.1/Libraries/CMSIS/Include/core_cm4_simd.h \
+ libs/STM32F4xx_DSP_StdPeriph_Lib_V1.0.1/Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/include/portable.h \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/include/mpu_wrappers.h \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/include/task.h \
+ libs/FreeRTOSV7.6.0/FreeRTOS/Source/include/list.h

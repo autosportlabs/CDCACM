@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -I..\..\..\workspace\usbHostCDC">
+      <target file="main.o" lastModified="1433c8a0961">
+         <source file="C:\CooCox\CoIDE\workspace\usbHostCDC\main.c" lastModified="1433c891e74"/>
+      </target>
+   </processor>
+</history>

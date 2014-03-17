@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.4.1 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=usbHostCDC.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\usbHostCDC -TC:\CooCox\CoIDE\configuration\ProgramData\usbHostCDC/arm-gcc-link.ld -g">
+      <target file="usbHostCDC.elf" lastModified="1433c8a0c7e">
+         <source file="..\obj\main.o" lastModified="1433c8a0961"/>
+      </target>
+   </processor>
+</history>

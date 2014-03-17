@@ -1,0 +1,4 @@
+--cpu Cortex-M4.fp "main.o" --strict --scatter "usbHostCDC.elf.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\usbHostCDC.map" -o "usbHostCDC.elf.axf"
