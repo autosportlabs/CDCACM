@@ -21,6 +21,7 @@ __ALIGN_BEGIN CDC_Machine_TypeDef           CDC_Machine __ALIGN_END;
 
 uint8_t                                     CDC_port_num = 0;
 uint8_t                                     set_line_code_done = 0;
+USBH_Status									lineCodeStatus = 0;
 
 /* 
  * USBH_CDC_CORE_Private_FunctionPrototypes

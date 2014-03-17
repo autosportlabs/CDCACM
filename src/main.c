@@ -57,11 +57,13 @@ static void main_task(void *params) {
     DEBUG("waiting for enum...\n");
 	while (1) {
 		USBH_Process(&USB_OTG_Core, &USB_Host);
+
 		if (enum_done >= 1) {
             DEBUG("enum_done\n");
 			enum_done = 0;
 
 		}
+
         
         if (USBH_CDC_isReady() == 1) {
 			DEBUG("Ports detected %d\n", USBH_CDC_GetPortCount());
