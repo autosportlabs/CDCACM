@@ -71,15 +71,20 @@ static void main_task(void *params) {
             /* we can do the following things
                in here, now just blink the LED */
 
-            uint8_t port = 1;
+            uint8_t port = 2;
 
-            DEBUG("send 'at' on port %d...\n", port);
-            USBH_CDC_SendData("at\r\n", 4, port);
+            DEBUG("send 'AT' on port %d...\n", port);
+            int sendRes = USBH_CDC_SendData("AT\r\n", 4, port);
+            DEBUG("send result=%d\n", sendRes);
             
             memset((void *)inbuf, 0, 40);
-            received = USBH_CDC_ReceiveData(inbuf, 40, port);
-            inbuf[received] = 0;
-            DEBUG("%d received:\n%s\n", received, inbuf);
+            int receiveRes = USBH_CDC_ReceiveData(inbuf, 40, port);
+            DEBUG("receive result=%d\n", receiveRes);
+
+            if (receiveRes > 0){
+				inbuf[received] = 0;
+				DEBUG("%d received data:\n%s\n", received, inbuf);
+            }
 
             if (flag == 0) {
                 flag = 1;

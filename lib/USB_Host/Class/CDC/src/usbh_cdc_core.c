@@ -226,16 +226,12 @@ uint8_t USBH_CDC_isReady(void) {
 int USBH_CDC_SendData(uint8_t *data, int len, uint8_t port) {
     USB_OTG_CORE_HANDLE *pdev = CDC_Machine.pdev;
 
-    if (port >= CDC_port_num || pdev == 0 || set_line_code_done == 0
-        || data == 0 || len == 0) {
-        /* invalid port, or no init, or invalid parameters */
-        return -1;
-    }
-
-    if (!HCD_IsDeviceConnected(pdev)) {
-        /* device is not connected */
-        return -1;
-    }
+    if (port >= CDC_port_num) return -1;
+    if ( pdev == 0 ) return -2;
+    if (set_line_code_done == 0) return -3;
+    if (data == 0) return -4;
+    if (len == 0) return -5;
+    if (!HCD_IsDeviceConnected(pdev)) return -10;         /* device is not connected */
 
     /* wait for URB Ready */
     while (HCD_GetURB_State(pdev, CDC_Machine.hc_num_out[port]) == URB_NOTREADY
@@ -258,7 +254,7 @@ int USBH_CDC_ReceiveData(uint8_t *data, int len, uint8_t port) {
     if (set_line_code_done == 0) return -3;
     if (data == 0) return -4;
     if (len == 0) return -5;
-    if (!HCD_IsDeviceConnected(pdev)) return -6;
+    if (!HCD_IsDeviceConnected(pdev)) return -10;
 
     /* wait for URB Ready */
     while (HCD_GetURB_State(pdev, CDC_Machine.hc_num_in[port]) == URB_NOTREADY

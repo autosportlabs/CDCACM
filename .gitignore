@@ -1,18 +1,14 @@
-# Object files
 *.o
-*.ko
-
-# Libraries
-*.lib
-*.a
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
+*.lst
+*.elf
+main.bin
+main.elf
+main.map
+main.sym
+.dep/
+test/rcptest
+RaceCapturePro_Firmware
+test/rcptest
+*.bin
+*.elf
+Race*.zip
