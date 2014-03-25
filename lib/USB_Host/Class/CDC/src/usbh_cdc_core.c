@@ -207,6 +207,10 @@ static USBH_Status USBH_CDC_Handle(USB_OTG_CORE_HANDLE *pdev , void *phost) {
         if (lastLineCodingRes == USBH_OK) {
             set_line_code_done = 1;
         }
+    #if 1
+        /* I do not care about the set line result now */
+        set_line_code_done = 1;
+    #endif
     }
 
     return USBH_OK; 
