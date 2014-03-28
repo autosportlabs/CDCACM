@@ -68,25 +68,26 @@ static void main_task(void *params) {
         
         if (USBH_CDC_isReady() == 1) {
 			DEBUG("Ports detected %d\n", USBH_CDC_GetPortCount());
-            int received;
 
             led_on(CDC_READY_LED);
             /* we can do the following things
                in here, now just blink the LED */
 
-            uint8_t port = 2;
+            uint8_t port = 0;
 
+        #if 0   /* no need send AT while do usb serial testing */
             DEBUG("send 'AT' on port %d...\n", port);
             int sendRes = USBH_CDC_SendData("AT\r\n", 4, port);
-            DEBUG("send result=%d\n", sendRes);
+            DEBUG("send result = %d\n", sendRes);
+        #endif
             
             memset((void *)inbuf, 0, 40);
             int receiveRes = USBH_CDC_ReceiveData(inbuf, 40, port);
-            DEBUG("receive result=%d\n", receiveRes);
+            DEBUG("receive result = %d\n", receiveRes);
 
             if (receiveRes > 0){
-				inbuf[received] = 0;
-				DEBUG("%d received data:\n%s\n", received, inbuf);
+				inbuf[receiveRes] = 0;
+				DEBUG("%d received data:\n%s\n", receiveRes, inbuf);
             }
 
             if (flag == 0) {
