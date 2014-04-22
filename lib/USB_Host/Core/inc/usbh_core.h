@@ -57,6 +57,7 @@
 #define MSC_PROTOCOL                      0x50
 #define CBI_PROTOCOL                      0x01
 
+#define CDC_ACM_CLASS                     0x02
 #define CDC_DATA_CLASS                    0x0A
 #define CUSTOM_CLASS                      0xFF
 

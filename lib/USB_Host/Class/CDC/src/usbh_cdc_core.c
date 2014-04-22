@@ -73,6 +73,7 @@ static USBH_Status USBH_CDC_InterfaceInit(USB_OTG_CORE_HANDLE *pdev, void *phost
     CDC_port_num = 0;
     for (i_num = 0; i_num < pphost->device_prop.Cfg_Desc.bNumInterfaces; i_num++) {
         if (pphost->device_prop.Itf_Desc[i_num].bInterfaceClass == CDC_DATA_CLASS
+            || pphost->device_prop.Itf_Desc[i_num].bInterfaceClass == CDC_ACM_CLASS
             || pphost->device_prop.Itf_Desc[i_num].bInterfaceClass == CUSTOM_CLASS) {
             /* CDC data class, or custom class */
 
