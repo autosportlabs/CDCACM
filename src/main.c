@@ -53,6 +53,7 @@ static void main_task(void *params) {
     /* Initialize USB Host Library */
     DEBUG("Before USBH_Init\n");
     USBH_Init(&USB_OTG_Core, USB_OTG_FS_CORE_ID, &USB_Host, &USBH_CDC_cb, &USR_Callbacks);
+    vTaskDelay(10000 / portTICK_RATE_MS);
 
     DEBUG("waiting for enum...\n");
     while (1) {

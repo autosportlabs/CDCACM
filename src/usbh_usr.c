@@ -32,26 +32,29 @@
 
 extern volatile int enum_done;
 
+#define ATTACHED_LED    (LED4)
+#define ENUM_DONE_LED   (LED5)
+
 USBH_Usr_cb_TypeDef USR_Callbacks =
 {
-		USBH_USR_Init,
-		USBH_USR_DeInit,
-		USBH_USR_DeviceAttached,
-		USBH_USR_ResetDevice,
-		USBH_USR_DeviceDisconnected,
-		USBH_USR_OverCurrentDetected,
-		USBH_USR_DeviceSpeedDetected,
-		USBH_USR_Device_DescAvailable,
-		USBH_USR_DeviceAddressAssigned,
-		USBH_USR_Configuration_DescAvailable,
-		USBH_USR_Manufacturer_String,
-		USBH_USR_Product_String,
-		USBH_USR_SerialNum_String,
-		USBH_USR_EnumerationDone,
-		USBH_USR_UserInput,
-		USBH_USR_CDC_Application,
-		USBH_USR_DeviceNotSupported,
-		USBH_USR_UnrecoveredError
+        USBH_USR_Init,
+        USBH_USR_DeInit,
+        USBH_USR_DeviceAttached,
+        USBH_USR_ResetDevice,
+        USBH_USR_DeviceDisconnected,
+        USBH_USR_OverCurrentDetected,
+        USBH_USR_DeviceSpeedDetected,
+        USBH_USR_Device_DescAvailable,
+        USBH_USR_DeviceAddressAssigned,
+        USBH_USR_Configuration_DescAvailable,
+        USBH_USR_Manufacturer_String,
+        USBH_USR_Product_String,
+        USBH_USR_SerialNum_String,
+        USBH_USR_EnumerationDone,
+        USBH_USR_UserInput,
+        USBH_USR_CDC_Application,
+        USBH_USR_DeviceNotSupported,
+        USBH_USR_UnrecoveredError
 };
 
 /**
@@ -70,7 +73,7 @@ void USBH_USR_Init(void)
  */
 void USBH_USR_DeviceAttached(void)
 {
-    led_on(LED4);
+    led_on(ATTACHED_LED);
 }
 
 /**
@@ -90,9 +93,9 @@ void USBH_USR_UnrecoveredError (void)
  */
 void USBH_USR_DeviceDisconnected (void)
 {
-    led_off(LED4);
-    led_off(LED5);
-	enum_done = 0;
+    led_off(ATTACHED_LED);
+    led_off(ENUM_DONE_LED);
+    enum_done = 0;
 }
 
 /**
@@ -102,7 +105,7 @@ void USBH_USR_DeviceDisconnected (void)
  */
 void USBH_USR_ResetDevice(void)
 {
-	/* callback for USB-Reset */
+    /* callback for USB-Reset */
 }
 
 
@@ -123,7 +126,7 @@ void USBH_USR_DeviceSpeedDetected(uint8_t DeviceSpeed)
  */
 void USBH_USR_Device_DescAvailable(void *DeviceDesc)
 {
-	/* callback for device descriptor */
+    /* callback for device descriptor */
 }
 
 /**
@@ -134,7 +137,7 @@ void USBH_USR_Device_DescAvailable(void *DeviceDesc)
  */
 void USBH_USR_DeviceAddressAssigned(void)
 {
-	/* callback for device successfully assigned the Address */
+    /* callback for device successfully assigned the Address */
 }
 
 /**
@@ -143,10 +146,10 @@ void USBH_USR_DeviceAddressAssigned(void)
  * @retval None
  */
 void USBH_USR_Configuration_DescAvailable(USBH_CfgDesc_TypeDef * cfgDesc,
-		USBH_InterfaceDesc_TypeDef *itfDesc,
-		USBH_EpDesc_TypeDef *epDesc)
+        USBH_InterfaceDesc_TypeDef *itfDesc,
+        USBH_EpDesc_TypeDef *epDesc)
 {
-	/* callback for configuration descriptor */
+    /* callback for configuration descriptor */
 }
 
 /**
@@ -156,7 +159,7 @@ void USBH_USR_Configuration_DescAvailable(USBH_CfgDesc_TypeDef * cfgDesc,
  */
 void USBH_USR_Manufacturer_String(void *ManufacturerString)
 {
-	/* callback for  Manufacturer String */
+    /* callback for  Manufacturer String */
 }
 
 /**
@@ -166,7 +169,7 @@ void USBH_USR_Manufacturer_String(void *ManufacturerString)
  */
 void USBH_USR_Product_String(void *ProductString)
 {
-	/* callback for Product String */
+    /* callback for Product String */
 }
 
 /**
@@ -176,7 +179,7 @@ void USBH_USR_Product_String(void *ProductString)
  */
 void USBH_USR_SerialNum_String(void *SerialNumString)
 {
-	/* callback for SerialNum_String */
+    /* callback for SerialNum_String */
 }
 
 /**
@@ -187,9 +190,9 @@ void USBH_USR_SerialNum_String(void *SerialNumString)
  */
 void USBH_USR_EnumerationDone(void)
 {
-	/* 0.5 seconds delay */
-	USB_OTG_BSP_mDelay(500);
-	USBH_USR_CDC_Application();
+    /* 0.5 seconds delay */
+    USB_OTG_BSP_mDelay(500);
+    USBH_USR_CDC_Application();
 } 
 
 /**
@@ -211,8 +214,8 @@ void USBH_USR_DeviceNotSupported(void)
  */
 USBH_USR_Status USBH_USR_UserInput(void)
 {
-	/* callback for Key botton: set by software in this case */
-	return USBH_USR_RESP_OK;
+    /* callback for Key botton: set by software in this case */
+    return USBH_USR_RESP_OK;
 }
 
 /**
@@ -228,8 +231,8 @@ void USBH_USR_OverCurrentDetected (void)
 int USBH_USR_CDC_Application(void)
 {
     enum_done++;
-    led_on(LED5);
-	return 0;
+    led_on(ENUM_DONE_LED);
+    return 0;
 }
 
 /**

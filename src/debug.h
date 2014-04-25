@@ -14,7 +14,7 @@ void PRINT(const char *fmt, ...);
  * debug control, you can switch on this (delete 'x' suffix)
  * to enable log output and assert mechanism
  */
-#define CONFIG_ENABLE_DEBUG
+#define CONFIG_ENABLE_DEBUGx
 
 /*
  * default, compiler use uart_puts etc. for 
