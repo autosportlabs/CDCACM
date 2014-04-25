@@ -442,7 +442,7 @@ static USBH_Status USBH_HandleEnum(USB_OTG_CORE_HANDLE *pdev, USBH_HOST *phost)
     /* set address */
     if ( USBH_SetAddress(pdev, phost, USBH_DEVICE_ADDRESS) == USBH_OK)
     {
-      USB_OTG_BSP_mDelay(2);
+      USB_OTG_BSP_mDelay(20);
       phost->device_prop.address = USBH_DEVICE_ADDRESS;
       
       /* user callback for device address assigned */
@@ -492,6 +492,7 @@ static USBH_Status USBH_HandleEnum(USB_OTG_CORE_HANDLE *pdev, USBH_HOST *phost)
     break;
     
   case ENUM_GET_MFC_STRING_DESC:  
+    //led_on(LED5);
     if (phost->device_prop.Dev_Desc.iManufacturer != 0)
     { /* Check that Manufacturer String is available */
       

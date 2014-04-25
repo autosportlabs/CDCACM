@@ -26,6 +26,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
 
+#include "../../src/led.h"
 
 /** @addtogroup USB_OTG_DRIVER
   * @{
@@ -51,7 +52,7 @@
 #endif /* USE_USB_OTG_FS */
 
 #ifndef USE_USB_OTG_HS
-#define USE_USB_OTG_HS
+//#define USE_USB_OTG_HS
 #endif /* USE_USB_OTG_HS */
 
 #ifndef USE_ULPI_PHY
